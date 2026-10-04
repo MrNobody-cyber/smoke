@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Keneni ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div id="loader">
+    <div class="loader-box">
+        <div class="loader-heart">♡</div>
+        <p>Something special is loading...</p>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background-orb orb1"></div>
+<div class="background-orb orb2"></div>
+<div id="heart-container"></div>
+
+
+<!-- OPTIONAL MUSIC
+     Put music.mp3 beside index.html
+-->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =====================================================
+     PAGE 1 — INTRO
+===================================================== -->
+
+<section class="page active" id="intro">
+
+    <div class="hero">
+
+        <div class="eyebrow">
+            CLASSIFIED • KENENI ONLY
+        </div>
+
+        <h1>
+            This isn't<br>
+            <span>a normal</span><br>
+            website.
+        </h1>
+
+        <p class="hero-text">
+            Because you're not a normal person to me.
+        </p>
+
+        <div class="warning-box">
+            ⚠️ WARNING ⚠️
+            <br>
+            This website contains:
+            <br>
+            <span>teasing • embarrassing facts • compliments • feelings</span>
+        </div>
+
+        <button class="main-btn" onclick="startGame()">
+            Enter at your own risk →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 2 — FIRST PUZZLE
+===================================================== -->
+
+<section class="page" id="puzzle1">
+
+    <div class="game-card">
+
+        <div class="progress">
+            <span>CASE FILE 01</span>
+            <span>01 / 05</span>
+        </div>
+
+        <div class="question-icon">🔐</div>
+
+        <p class="eyebrow">ACCESS PUZZLE</p>
+
+        <h2>
+            Before you continue...
+        </h2>
+
+        <p class="question">
+            What is Keneni officially certified as?
+        </p>
+
+        <div class="answers">
+
+            <button onclick="answer1('A')">
+                A. A completely normal human
+            </button>
+
+            <button onclick="answer1('B')">
+                B. A professional annoying person
+            </button>
+
+            <button onclick="answer1('C')">
+                C. Another mother
+            </button>
+
+            <button onclick="answer1('D')">
+                D. All of the above 💀
+            </button>
+
+        </div>
+
+        <p id="answer1-result" class="result"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 3 — PUZZLE 2
+===================================================== -->
+
+<section class="page" id="puzzle2">
+
+    <div class="game-card">
+
+        <div class="progress">
+            <span>CASE FILE 02</span>
+            <span>02 / 05</span>
+        </div>
+
+        <div class="question-icon">🧠</div>
+
+        <p class="eyebrow">MEMORY TEST</p>
+
+        <h2>
+            How well do you know yourself?
+        </h2>
+
+        <p class="question">
+            Which one describes Keneni the best?
+        </p>
+
+        <div class="answers">
+
+            <button onclick="answer2('A')">
+                A. Quiet and innocent 😇
+            </button>
+
+            <button onclick="answer2('B')">
+                B. Caring but secretly chaotic 😂
+            </button>
+
+            <button onclick="answer2('C')">
+                C. Completely harmless
+            </button>
+
+            <button onclick="answer2('D')">
+                D. A mysterious creature from another planet 👽
+            </button>
+
+        </div>
+
+        <p id="answer2-result" class="result"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 4 — PHOTO PUZZLE
+===================================================== -->
+
+<section class="page" id="photoPuzzle">
+
+    <div class="game-card wide">
+
+        <div class="progress">
+            <span>CASE FILE 03</span>
+            <span>03 / 05</span>
+        </div>
+
+        <p class="eyebrow">TOP SECRET</p>
+
+        <h2>
+            Guess my favorite.
+        </h2>
+
+        <p class="question">
+            One of these five pictures is my favorite.
+            <br>
+            Can you guess which one?
+        </p>
+
+        <div class="photo-grid">
+
+            <button class="guess-photo" onclick="guessPhoto(1)">
+                <img src="images/photo1.jpg" alt="Keneni">
+                <span>01</span>
+            </button>
+
+            <button class="guess-photo" onclick="guessPhoto(2)">
+                <img src="images/photo2.jpg" alt="Keneni">
+                <span>02</span>
+            </button>
+
+            <button class="guess-photo" onclick="guessPhoto(3)">
+                <img src="images/photo3.jpg" alt="Keneni">
+                <span>03</span>
+            </button>
+
+            <button class="guess-photo" onclick="guessPhoto(4)">
+                <img src="images/photo4.jpg" alt="Keneni">
+                <span>04</span>
+            </button>
+
+            <button class="guess-photo" onclick="guessPhoto(5)">
+                <img src="images/photo5.jpg" alt="Keneni">
+                <span>05</span>
+            </button>
+
+        </div>
+
+        <p class="tiny-note">
+            Choose carefully. Your reputation is at stake. 💀
+        </p>
+
+        <p id="photo-result" class="result"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 5 — KENENI TEST
+===================================================== -->
+
+<section class="page" id="puzzle4">
+
+    <div class="game-card">
+
+        <div class="progress">
+            <span>CASE FILE 04</span>
+            <span>04 / 05</span>
+        </div>
+
+        <div class="question-icon">🕵️</div>
+
+        <p class="eyebrow">OFFICIAL INVESTIGATION</p>
+
+        <h2>
+            Keneni personality test.
+        </h2>
+
+        <p class="question">
+            Choose the statement that sounds most like you.
+        </p>
+
+        <div class="answers">
+
+            <button onclick="personality('care')">
+                “I always make sure people are okay.” ❤️
+            </button>
+
+            <button onclick="personality('chaos')">
+                “I don't cause problems. Problems find me.” 😂
+            </button>
+
+            <button onclick="personality('funny')">
+                “If nobody is laughing, I haven't finished my job.”
+            </button>
+
+            <button onclick="personality('all')">
+                “Why choose? I'm all of them.” 😌
+            </button>
+
+        </div>
+
+        <p id="personality-result" class="result"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 6 — SECRET LOCK
+===================================================== -->
+
+<section class="page" id="puzzle5">
+
+    <div class="game-card">
+
+        <div class="progress">
+            <span>FINAL CASE FILE</span>
+            <span>05 / 05</span>
+        </div>
+
+        <div class="question-icon">🔑</div>
+
+        <p class="eyebrow">FINAL LOCK</p>
+
+        <h2>
+            One last question.
+        </h2>
+
+        <p class="question">
+            What happens when someone starts as a best friend
+            but becomes family?
+        </p>
+
+        <div class="answers">
+
+            <button onclick="finalAnswer('A')">
+                A. They become impossible to replace.
+            </button>
+
+            <button onclick="finalAnswer('B')">
+                B. They become more annoying.
+            </button>
+
+            <button onclick="finalAnswer('C')">
+                C. Both A and B 😂❤️
+            </button>
+
+        </div>
+
+        <p id="final-result" class="result"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 7 — REVEAL
+===================================================== -->
+
+<section class="page" id="reveal">
+
+    <div class="reveal-box">
+
+        <div class="unlock-symbol">
+            🔓
+        </div>
+
+        <p class="eyebrow">
+            CASE CLOSED
+        </p>
+
+        <h1>
+            Okay, Keneni...
+        </h1>
+
+        <p class="reveal-text">
+            You survived the interrogation.
+        </p>
+
+        <p class="reveal-text">
+            Now you deserve to know why I made all of this.
+        </p>
+
+        <button class="main-btn" onclick="showPage('favorite')">
+            Tell me already →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 8 — FAVORITE PHOTOS
+===================================================== -->
+
+<section class="page" id="favorite">
+
+    <div class="content-container">
+
+        <p class="eyebrow">
+            A LITTLE CONFESSION
+        </p>
+
+        <h2>
+            A few of my favorites.
+        </h2>
+
+        <p class="intro-text">
+            These aren't memories of us.
+            They're simply five pictures of you that I really love.
+            Because sometimes I look at a picture of you and think...
+        </p>
+
+        <div class="quote">
+            "Yeah... that's my favorite person."
+        </div>
+
+
+        <div class="gallery">
+
+            <div class="photo-card">
+                <img src="images/photo1.jpg" alt="Keneni">
+                <div>
+                    <small>01</small>
+                    <p>This one? Yeah... I really like this one. ❤️</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="images/photo2.jpg" alt="Keneni">
+                <div>
+                    <small>02</small>
+                    <p>How are you casually this pretty? 😭</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="images/photo3.jpg" alt="Keneni">
+                <div>
+                    <small>03</small>
+                    <p>Definitely one of my favorites.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="images/photo4.jpg" alt="Keneni">
+                <div>
+                    <small>04</small>
+                    <p>Okay... this one has a special place. 🤍</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="images/photo5.jpg" alt="Keneni">
+                <div>
+                    <small>05</small>
+                    <p>Just Keneni being Keneni. ❤️</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="funny-card">
+
+            <p>
+                And before you start getting a big ego...
+            </p>
+
+            <strong>
+                yes, you're still annoying. 😂
+            </strong>
+
+        </div>
+
+
+        <button class="main-btn" onclick="showPage('letter')">
+            There's something serious I need to say...
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 9 — EMOTIONAL LETTER
+===================================================== -->
+
+<section class="page" id="letter">
+
+    <div class="content-container">
+
+        <p class="eyebrow">
+            NO MORE JOKES
+        </p>
+
+        <h2>
+            Keneni,
+        </h2>
+
+        <div class="letter">
+
+            <p>
+                I don't always say everything I feel.
+                Sometimes I joke around.
+                Sometimes I act like I don't care.
+                And sometimes I simply don't know how to
+                put certain feelings into words.
+            </p>
+
+            <p>
+                But I want you to know that I notice your care.
+            </p>
+
+            <p>
+                I notice when you check on me.
+                I notice when you worry about me.
+                I notice when you try to make things better.
+            </p>
+
+            <p>
+                And honestly...
+                those little things mean more than you probably realize.
+            </p>
+
+            <p>
+                Somewhere along the way,
+                you stopped being just my bestie.
+            </p>
+
+            <p class="special">
+                You became family.
+            </p>
+
+            <p>
+                Sometimes you genuinely feel like
+                another mother to me.
+                Someone who cares, checks, worries,
+                and somehow manages to put up with me.
+            </p>
+
+            <p>
+                And somehow you're also the same person
+                who can annoy me in approximately
+                0.0003 seconds. 😂
+            </p>
+
+            <p>
+                But honestly, I wouldn't trade that for anything.
+            </p>
+
+            <p>
+                Thank you for being there.
+                Thank you for caring.
+                Thank you for laughing with me.
+                Thank you for being you.
+            </p>
+
+            <p>
+                You probably don't realize how important
+                you have become to me.
+            </p>
+
+            <p class="special">
+                You're not just someone I call my best friend.
+                <br>
+                You're one of my people.
+            </p>
+
+            <p>
+                And some people become family
+                without ever sharing your blood.
+            </p>
+
+            <p class="special">
+                You're one of those people.
+            </p>
+
+            <p class="signature">
+                — Your forever annoying bestie ❤️
+            </p>
+
+        </div>
+
+
+        <button class="main-btn" onclick="showPage('final')">
+            One last surprise...
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 10 — FINAL
+===================================================== -->
+
+<section class="page" id="final">
+
+    <div class="final-screen">
+
+        <div class="giant-heart">
+            ♡
+        </div>
+
+        <p class="eyebrow">
+            FOR KENENI
+        </p>
+
+        <h1>
+            Some people become family
+            without sharing your blood.
+        </h1>
+
+        <p class="final-text">
+            Thank you for being one of those people.
+        </p>
+
+        <h2 class="keneni-name">
+            Keneni.
+        </h2>
+
+        <div class="forever">
+            BESTIES
+            <span>•</span>
+            FAMILY
+            <span>•</span>
+            ALWAYS
+        </div>
+
+        <button class="heart-btn" onclick="createHeartBurst()">
+            ❤️
+        </button>
+
+        <p class="tap-text">
+            Tap the heart.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

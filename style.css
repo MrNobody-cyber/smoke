@@ -1,0 +1,943 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #09070d;
+    color: #f9edf5;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #09070d;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+#loader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-box {
+    text-align: center;
+}
+
+.loader-heart {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 85px;
+    color: #efb6d4;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.loader-box p {
+    color: #cbbdca;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background-orb {
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: -2;
+
+    filter: blur(80px);
+}
+
+.orb1 {
+    top: -200px;
+    left: -200px;
+    background: rgba(239, 182, 212, 0.08);
+}
+
+.orb2 {
+    right: -200px;
+    bottom: -200px;
+    background: rgba(232, 199, 156, 0.06);
+}
+
+#heart-container {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 500;
+}
+
+
+/* =====================================================
+   PAGES
+===================================================== */
+
+.page {
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 40px 20px;
+}
+
+.page.active {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    animation: pageIn 0.8s ease;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+h1,
+h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: clamp(55px, 10vw, 110px);
+    line-height: 0.9;
+}
+
+h2 {
+    font-size: clamp(42px, 8vw, 75px);
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    color: #e8c79c;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.hero {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.hero h1 span {
+    color: #efb6d4;
+}
+
+.hero-text {
+    margin-top: 30px;
+
+    color: #cbbdca;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+}
+
+.intro-text {
+    max-width: 650px;
+
+    margin: 20px auto 35px;
+
+    color: #cbbdca;
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.quote {
+    max-width: 650px;
+
+    margin: 25px auto 40px;
+
+    color: #efb6d4;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+}
+
+
+/* =====================================================
+   WARNING
+===================================================== */
+
+.warning-box {
+    max-width: 500px;
+
+    margin: 35px auto;
+
+    padding: 18px;
+
+    border: 1px solid rgba(232, 199, 156, 0.2);
+
+    background: rgba(232, 199, 156, 0.035);
+
+    border-radius: 15px;
+
+    color: #e8c79c;
+
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+.warning-box span {
+    color: #cbbdca;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.main-btn {
+    border: 1px solid rgba(239, 182, 212, 0.5);
+
+    background: rgba(239, 182, 212, 0.06);
+
+    color: #f9edf5;
+
+    border-radius: 50px;
+
+    padding: 15px 28px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.main-btn:hover {
+    background: #efb6d4;
+    color: #09070d;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 45px rgba(239, 182, 212, 0.18);
+}
+
+
+/* =====================================================
+   GAME CARD
+===================================================== */
+
+.game-card {
+    width: 100%;
+    max-width: 700px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.015)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.3);
+
+    backdrop-filter: blur(20px);
+}
+
+.game-card.wide {
+    max-width: 950px;
+}
+
+.progress {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #77717a;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 35px;
+}
+
+.question-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.question {
+    color: #cbbdca;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   ANSWERS
+===================================================== */
+
+.answers {
+    display: grid;
+
+    gap: 12px;
+
+    max-width: 600px;
+
+    margin: auto;
+}
+
+.answers button {
+    width: 100%;
+
+    padding: 16px 20px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid rgba(255,255,255,0.09);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color: #ddd3db;
+
+    text-align: left;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.answers button:hover {
+    border-color: rgba(239,182,212,0.5);
+
+    background:
+        rgba(239,182,212,0.08);
+
+    transform: translateX(5px);
+}
+
+.result {
+    min-height: 30px;
+
+    margin-top: 25px;
+
+    color: #efb6d4;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   PHOTO PUZZLE
+===================================================== */
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 12px;
+
+    margin: 30px auto;
+
+    max-width: 850px;
+}
+
+.guess-photo {
+    position: relative;
+
+    padding: 0;
+
+    border: 2px solid transparent;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.guess-photo:hover {
+    transform: translateY(-8px);
+
+    border-color: #efb6d4;
+}
+
+.guess-photo img {
+    width: 100%;
+    height: 260px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.guess-photo span {
+    position: absolute;
+
+    left: 10px;
+    top: 10px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(9,7,13,0.8);
+
+    color: #fff;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.content-container {
+    width: 100%;
+    max-width: 1000px;
+
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+    max-width: 850px;
+
+    margin: 35px auto;
+}
+
+.photo-card {
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    text-align: left;
+
+    transition: 0.4s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(239,182,212,0.35);
+}
+
+.photo-card img {
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.photo-card div {
+    padding: 17px;
+}
+
+.photo-card small {
+    color: #e8c79c;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.photo-card p {
+    margin-top: 7px;
+
+    color: #d5cbd2;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   FUNNY CARD
+===================================================== */
+
+.funny-card {
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(239,182,212,0.04);
+
+    border:
+        1px solid rgba(239,182,212,0.12);
+
+    color: #cbbdca;
+
+    line-height: 1.8;
+}
+
+.funny-card strong {
+    color: #efb6d4;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 27px;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter {
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    text-align: left;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(239,182,212,0.12);
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,0.25);
+}
+
+.letter p {
+    color: #d4c9d1;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    margin-bottom: 25px;
+}
+
+.letter .special {
+    color: #efb6d4;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    text-align: center;
+}
+
+.signature {
+    color: #e8c79c !important;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px !important;
+
+    text-align: right;
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal-box {
+    text-align: center;
+
+    max-width: 700px;
+}
+
+.unlock-symbol {
+    font-size: 65px;
+
+    margin-bottom: 25px;
+
+    animation:
+        unlockPulse 1.5s infinite;
+}
+
+.reveal-text {
+    color: #cbbdca;
+
+    line-height: 1.9;
+
+    margin: 15px 0;
+}
+
+@keyframes unlockPulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-screen {
+    width: 100%;
+
+    max-width: 850px;
+
+    text-align: center;
+}
+
+.giant-heart {
+    color: #efb6d4;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 120px;
+
+    animation:
+        heartbeat 1.7s infinite;
+}
+
+.final-screen h1 {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.final-text {
+    margin: 30px auto;
+
+    color: #cbbdca;
+
+    max-width: 500px;
+
+    line-height: 1.8;
+}
+
+.keneni-name {
+    color: #efb6d4;
+
+    margin-top: 20px;
+}
+
+.forever {
+    margin-top: 30px;
+
+    color: #e8c79c;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+.forever span {
+    color: #efb6d4;
+
+    margin: 0 10px;
+}
+
+.heart-btn {
+    display: block;
+
+    width: 75px;
+    height: 75px;
+
+    margin: 35px auto 10px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(239,182,212,0.5);
+
+    background:
+        rgba(239,182,212,0.08);
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.heart-btn:hover {
+    transform: scale(1.15);
+
+    background:
+        rgba(239,182,212,0.2);
+}
+
+.tap-text {
+    color: #77717a;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.13);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING HEART
+===================================================== */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -40px;
+
+    color: #efb6d4;
+
+    pointer-events: none;
+
+    animation:
+        floatUp linear forwards;
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 62px;
+    }
+
+    h2 {
+        font-size: 46px;
+    }
+
+    .hero-text {
+        font-size: 25px;
+    }
+
+    .game-card {
+        padding: 25px 17px;
+    }
+
+    .photo-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .guess-photo img {
+        height: 230px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        height: 400px;
+    }
+
+    .letter {
+        padding: 25px 20px;
+    }
+
+    .letter p {
+        font-size: 13px;
+    }
+
+    .giant-heart {
+        font-size: 90px;
+    }
+
+    .final-screen h1 {
+        font-size: 46px;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    h1 {
+        font-size: 54px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .photo-grid {
+        gap: 8px;
+    }
+
+    .guess-photo img {
+        height: 190px;
+    }
+
+    .photo-card img {
+        height: 330px;
+    }
+
+}
